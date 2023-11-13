@@ -19,12 +19,9 @@ app.use(cookieParser());
 app.use(cors());
 
 const mongoUri =
-  'mongodb+srv://taskprodb:taskprodb123@cluster0.67qorno.mongodb.net/taskpro';
-mongoose.connect(mongoUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  // mongodb+srv://test_user:<1231>@cluster0.67qorno.mongodb.net/
-});
+  'mongodb+srv://test_user:1231@cluster0.67qorno.mongodb.net/test';
+// 'mongodb+srv://taskprodb:taskprodb123@cluster0.67qorno.mongodb.net/taskpro';
+mongoose.connect(mongoUri);
 
 require('./models/User');
 require("./config/passport");
