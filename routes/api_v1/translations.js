@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Language = require('../../models/languages');
-const { dashboardRoutes, projectRoutes, homeDashboardPage, homeProjectPage, popUps, settingsPage, projects_dashboard_page } = require('../../models/translations');
+const { dashboardRoutes, projectRoutes, homeDashboardPage, homeProjectPage, popUps, settingsPage, projects_dashboard_page, task_model_translations } = require('../../models/translations');
 const auth = require('../auth');
 
 const getTranslationsByCollection = async (collectionName) => {
@@ -19,6 +19,8 @@ const getTranslationsByCollection = async (collectionName) => {
             return await popUps.find({});
         case 'projects_dashboard_pages':
             return await projects_dashboard_page.find({});
+        case 'task_model_translations':
+            return await task_model_translations.find({});
         default:
             throw new Error('Invalid collection name');
     }
@@ -34,6 +36,7 @@ const getAllTranslations = async (req, res, next) => {
             'projrct_routes',
             'popups',
             'projects_dashboard_pages',
+            'task_model_translations'
         ];
 
         const translations = {};
@@ -67,7 +70,9 @@ const updateTranslationByCollection = async (collectionName, id, langCode, newWo
         case 'popups':
             return await popUps.findByIdAndUpdate({ _id: id }, updateQuery);
         case 'projects_dashboard_pages':
-            return await projects_dashboard_page.findByIdAndUpdate({ _id: id }, updateQuery);
+            return
+        case 'task_model_translations':
+            return await task_model_translations.findByIdAndUpdate({ _id: id }, updateQuery);
         default:
             throw new Error('Invalid collection name');
     }

@@ -12,5 +12,6 @@ const dashboardRoutes = mongoose.model('dashboard_routes', NewSchema);
 const projectRoutes = mongoose.model('projrct_routes', NewSchema);
 const settingsPage = mongoose.model('settings_pages', NewSchema);
 const popUps = mongoose.model('popups', NewSchema);
+const task_model_translations = mongoose.model("task_model_translations", NewSchema)
 
-module.exports = { dashboardRoutes, projectRoutes, homeDashboardPage, homeProjectPage, settingsPage, popUps, projects_dashboard_page }
+module.exports = { dashboardRoutes, projectRoutes, homeDashboardPage, homeProjectPage, settingsPage, popUps, projects_dashboard_page, task_model_translations }
